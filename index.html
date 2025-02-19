@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Speech Model Leaderboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <header class="bg-blue-600 text-white py-4 shadow-md">
+    <div class="container mx-auto px-4">
+      <h1 class="text-3xl font-bold">Speech Model Leaderboard</h1>
+      <p class="text-lg">A comprehensive comparison of speech models across various benchmarks</p>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-8">
+    <section>
+      <h2 class="text-2xl font-bold mb-4">Leaderboard</h2>
+      <div class="overflow-x-auto shadow-md">
+        <table class="min-w-full table-auto border-collapse bg-white">
+          <thead class="bg-gray-200">
+            <tr>
+              <th class="border px-4 py-2">System</th>
+              <th class="border px-4 py-2">Num Params (M)</th>
+              <th class="border px-4 py-2">In-the-wild</th>
+              <th class="border px-4 py-2">ASV2019</th>
+              <th class="border px-4 py-2">ASV2021LA</th>
+              <th class="border px-4 py-2">ASV2021DF</th>
+              <th class="border px-4 py-2">ASV2024-Eval</th>
+              <th class="border px-4 py-2">FakeOrReal</th>
+              <th class="border px-4 py-2">Codecfake</th>
+              <th class="border px-4 py-2">ADD2022 Track1</th>
+              <th class="border px-4 py-2">ADD2022 Track 3</th>
+              <th class="border px-4 py-2">ADD 2023 R1</th>
+              <th class="border px-4 py-2">ADD2023 R2</th>
+              <th class="border px-4 py-2">DFADD</th>
+              <th class="border px-4 py-2">LibriVoc</th>
+              <th class="border px-4 py-2">SONAR</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="hover:bg-gray-100">
+              <td class="border px-4 py-2">AASIST</td>
+              <td class="border px-4 py-2">0.297</td>
+              <td class="border px-4 py-2">43.01</td>
+              <td class="border px-4 py-2">0.83</td>
+              <td class="border px-4 py-2">11.46</td>
+              <td class="border px-4 py-2">21.07</td>
+              <td class="border px-4 py-2">35.53</td>
+              <td class="border px-4 py-2">21.64</td>
+              <td class="border px-4 py-2">51.05</td>
+              <td class="border px-4 py-2">47.91</td>
+              <td class="border px-4 py-2">33.18</td>
+              <td class="border px-4 py-2">47.75</td>
+              <td class="border px-4 py-2">32.46</td>
+              <td class="border px-4 py-2">41.85</td>
+              <td class="border px-4 py-2">46.72</td>
+              <td class="border px-4 py-2">57.43</td>
+            </tr>
+            <tr class="hover:bg-gray-100">
+              <td class="border px-4 py-2">RawGAT-ST</td>
+              <td class="border px-4 py-2">0.44</td>
+              <td class="border px-4 py-2">52.54</td>
+              <td class="border px-4 py-2">1.06</td>
+              <td class="border px-4 py-2">10.25</td>
+              <td class="border px-4 py-2">23.26</td>
+              <td class="border px-4 py-2">40.29</td>
+              <td class="border px-4 py-2">53.08</td>
+              <td class="border px-4 py-2">50</td>
+              <td class="border px-4 py-2">42.9</td>
+              <td class="border px-4 py-2">32.3</td>
+              <td class="border px-4 py-2">37.86</td>
+              <td class="border px-4 py-2">27.33</td>
+              <td class="border px-4 py-2">23.71</td>
+              <td class="border px-4 py-2">43.38</td>
+              <td class="border px-4 py-2">50.74</td>
+            </tr>
+            <!-- Add additional rows here -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-gray-800 text-white py-4">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2025 Speech Model Leaderboard. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
