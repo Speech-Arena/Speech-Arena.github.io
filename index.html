@@ -1,92 +1,199 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Speech Model Leaderboard</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100 text-gray-800">
-  <header class="bg-blue-600 text-white py-4 shadow-md">
-    <div class="container mx-auto px-4">
-      <h1 class="text-3xl font-bold">Speech Model Leaderboard</h1>
-      <p class="text-lg">A comprehensive comparison of speech models across various benchmarks</p>
-    </div>
-  </header>
-
-  <main class="container mx-auto px-4 py-8">
-    <section>
-      <h2 class="text-2xl font-bold mb-4">Leaderboard</h2>
-      <div class="overflow-x-auto shadow-md">
-        <table class="min-w-full table-auto border-collapse bg-white">
-          <thead class="bg-gray-200">
-            <tr>
-              <th class="border px-4 py-2">System</th>
-              <th class="border px-4 py-2">Num Params (M)</th>
-              <th class="border px-4 py-2">In-the-wild</th>
-              <th class="border px-4 py-2">ASV2019</th>
-              <th class="border px-4 py-2">ASV2021LA</th>
-              <th class="border px-4 py-2">ASV2021DF</th>
-              <th class="border px-4 py-2">ASV2024-Eval</th>
-              <th class="border px-4 py-2">FakeOrReal</th>
-              <th class="border px-4 py-2">Codecfake</th>
-              <th class="border px-4 py-2">ADD2022 Track1</th>
-              <th class="border px-4 py-2">ADD2022 Track 3</th>
-              <th class="border px-4 py-2">ADD 2023 R1</th>
-              <th class="border px-4 py-2">ADD2023 R2</th>
-              <th class="border px-4 py-2">DFADD</th>
-              <th class="border px-4 py-2">LibriVoc</th>
-              <th class="border px-4 py-2">SONAR</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="hover:bg-gray-100">
-              <td class="border px-4 py-2">AASIST</td>
-              <td class="border px-4 py-2">0.297</td>
-              <td class="border px-4 py-2">43.01</td>
-              <td class="border px-4 py-2">0.83</td>
-              <td class="border px-4 py-2">11.46</td>
-              <td class="border px-4 py-2">21.07</td>
-              <td class="border px-4 py-2">35.53</td>
-              <td class="border px-4 py-2">21.64</td>
-              <td class="border px-4 py-2">51.05</td>
-              <td class="border px-4 py-2">47.91</td>
-              <td class="border px-4 py-2">33.18</td>
-              <td class="border px-4 py-2">47.75</td>
-              <td class="border px-4 py-2">32.46</td>
-              <td class="border px-4 py-2">41.85</td>
-              <td class="border px-4 py-2">46.72</td>
-              <td class="border px-4 py-2">57.43</td>
-            </tr>
-            <tr class="hover:bg-gray-100">
-              <td class="border px-4 py-2">RawGAT-ST</td>
-              <td class="border px-4 py-2">0.44</td>
-              <td class="border px-4 py-2">52.54</td>
-              <td class="border px-4 py-2">1.06</td>
-              <td class="border px-4 py-2">10.25</td>
-              <td class="border px-4 py-2">23.26</td>
-              <td class="border px-4 py-2">40.29</td>
-              <td class="border px-4 py-2">53.08</td>
-              <td class="border px-4 py-2">50</td>
-              <td class="border px-4 py-2">42.9</td>
-              <td class="border px-4 py-2">32.3</td>
-              <td class="border px-4 py-2">37.86</td>
-              <td class="border px-4 py-2">27.33</td>
-              <td class="border px-4 py-2">23.71</td>
-              <td class="border px-4 py-2">43.38</td>
-              <td class="border px-4 py-2">50.74</td>
-            </tr>
-            <!-- Add additional rows here -->
-          </tbody>
-        </table>
-      </div>
-    </section>
-  </main>
-
-  <footer class="bg-gray-800 text-white py-4">
-    <div class="container mx-auto text-center">
-      <p>&copy; 2025 Speech Model Leaderboard. All rights reserved.</p>
-    </div>
-  </footer>
-</body>
-</html>
+<table class="table table-bordered table-hover table-condensed">
+<thead><tr><th title="Field #1">System</th>
+<th title="Field #2">Num Params (M)</th>
+<th title="Field #3">In-the-wild</th>
+<th title="Field #4">ASV2019</th>
+<th title="Field #5">ASV2021LA</th>
+<th title="Field #6">ASV2021DF</th>
+<th title="Field #7">ASV2024-Eval</th>
+<th title="Field #8">FakeOrReal</th>
+<th title="Field #9">Codecfake (Yuankun et. al.)</th>
+<th title="Field #10">ADD2022 Track1</th>
+<th title="Field #11">ADD2022 Track 3</th>
+<th title="Field #12">ADD 2023 R1</th>
+<th title="Field #13">ADD2023 R2</th>
+<th title="Field #14">DFADD</th>
+<th title="Field #15">LibriVoc</th>
+<th title="Field #16">SONAR</th>
+</tr></thead>
+<tbody><tr>
+<td>AASIST</td>
+<td align="right">0.297</td>
+<td align="right">43.01</td>
+<td align="right">0.83</td>
+<td align="right">11.46</td>
+<td align="right">21.07</td>
+<td align="right">35.53</td>
+<td align="right">21.64</td>
+<td align="right">51.05</td>
+<td align="right">47.91</td>
+<td align="right">33.18</td>
+<td align="right">47.75</td>
+<td align="right">32.46</td>
+<td align="right">41.85</td>
+<td align="right">46.72</td>
+<td align="right">57.43</td>
+</tr>
+<tr>
+<td>RawGAT-ST</td>
+<td align="right">0.44</td>
+<td align="right">52.54</td>
+<td align="right">1.06</td>
+<td align="right">10.25</td>
+<td align="right">23.26</td>
+<td align="right">40.29</td>
+<td align="right">53.08</td>
+<td align="right">50</td>
+<td align="right">42.9</td>
+<td align="right">32.3</td>
+<td align="right">37.86</td>
+<td align="right">27.33</td>
+<td align="right">23.71</td>
+<td align="right">43.38</td>
+<td align="right">50.74</td>
+</tr>
+<tr>
+<td>Whisper-df-mesonet-mfcc</td>
+<td align="right">7.6</td>
+<td align="right">26.72</td>
+<td align="right">5.83</td>
+<td align="right">15.82</td>
+<td align="right">2.11</td>
+<td align="right">22.54</td>
+<td align="right">47.7137</td>
+<td align="right">34.66</td>
+<td align="right">38.38</td>
+<td align="right">24</td>
+<td align="right">41.25</td>
+<td align="right">44.56</td>
+<td align="right">24.12</td>
+<td align="right">15.33</td>
+<td align="right">58.65</td>
+</tr>
+<tr>
+<td>WavLM-ECAPA</td>
+<td align="right">102</td>
+<td align="right">34.64</td>
+<td align="right">0.76</td>
+<td align="right">6.68</td>
+<td align="right">15.94</td>
+<td align="right">24.44</td>
+<td align="right">23.37</td>
+<td align="right">46.878</td>
+<td align="right">44.16</td>
+<td align="right">39.41</td>
+<td align="right">29</td>
+<td align="right">31.93</td>
+<td align="right">29.54</td>
+<td align="right">31.88</td>
+<td align="right">38.45</td>
+</tr>
+<tr>
+<td>Hubert-ECAPA</td>
+<td align="right">102</td>
+<td align="right">38.92</td>
+<td align="right">1.05</td>
+<td align="right">12.55</td>
+<td align="right">13.79</td>
+<td align="right">30.17</td>
+<td align="right">33.75</td>
+<td align="right">46.152</td>
+<td align="right">47.66</td>
+<td align="right">39.08</td>
+<td align="right">49.57</td>
+<td align="right">43.95</td>
+<td align="right">34.57</td>
+<td align="right">32.03</td>
+<td align="right">40.23</td>
+</tr>
+<tr>
+<td>Wav2Vec2-ECAPA</td>
+<td align="right">324</td>
+<td align="right">24.98</td>
+<td align="right">29.69</td>
+<td align="right">26.69</td>
+<td align="right">22.43</td>
+<td align="right">18.65</td>
+<td align="right">62.31</td>
+<td align="right">40.97</td>
+<td align="right">46.43</td>
+<td align="right">22.87</td>
+<td align="right">35.28</td>
+<td align="right">36.7</td>
+<td align="right">75.08</td>
+<td align="right">28.51</td>
+<td align="right">64.55</td>
+</tr>
+<tr>
+<td>TCM-Add</td>
+<td align="right">319</td>
+<td align="right">7.79</td>
+<td align="right">0.1883</td>
+<td align="right">2.99</td>
+<td align="right">2.14</td>
+<td align="right">18.85</td>
+<td align="right">10.69</td>
+<td align="right">35.72</td>
+<td align="right">37.4</td>
+<td align="right">20.94</td>
+<td align="right">23.42</td>
+<td align="right">22.74</td>
+<td align="right">8.89</td>
+<td align="right">2.34</td>
+<td align="right">26.64</td>
+</tr>
+<tr>
+<td>RawNet-2</td>
+<td align="right">17.6</td>
+<td align="right">49.19</td>
+<td align="right">28.25</td>
+<td align="right">40.07</td>
+<td align="right">40.06</td>
+<td align="right">41.21</td>
+<td align="right">38.74</td>
+<td align="right">50.21</td>
+<td align="right">49.35</td>
+<td align="right">47.62</td>
+<td align="right">55.64</td>
+<td align="right">64.55</td>
+<td align="right">39.08</td>
+<td align="right">48.16</td>
+<td align="right">43.044</td>
+</tr>
+<tr>
+<td>XLSR+SLS</td>
+<td align="right">340</td>
+<td align="right">7.45</td>
+<td align="right">0.231</td>
+<td align="right">2.86</td>
+<td align="right">1.96</td>
+<td align="right">18.76</td>
+<td align="right">5.08</td>
+<td align="right">33.43</td>
+<td align="right">33.95</td>
+<td align="right">15.74</td>
+<td align="right">19.37</td>
+<td align="right">21.09</td>
+<td align="right">7.54</td>
+<td align="right">1.96</td>
+<td align="right">24.75</td>
+</tr>
+<tr>
+<td>UniSpeech SAT Student</td>
+<td align="right">96</td>
+<td align="right">15.05</td>
+<td align="right">0.259</td>
+<td align="right">3.24</td>
+<td align="right">8.56</td>
+<td align="right">18.27</td>
+<td align="right">1.0577</td>
+<td align="right">44.3604</td>
+<td align="right">39.2515</td>
+<td align="right">25.2643</td>
+<td align="right">33.1611</td>
+<td align="right">28.21</td>
+<td align="right">9.1711</td>
+<td align="right">6.05</td>
+<td align="right">29.0587</td>
+</tr>
+</tbody></table>
