@@ -414,7 +414,7 @@
     </div>
   </div>
 
-  <div class="max-w-5xl mx-auto bg-white shadow-lg rounded-lg p-4 mt-8">
+  <!-- <div class="max-w-5xl mx-auto bg-white shadow-lg rounded-lg p-4 mt-8">
     <h2 class="text-2xl font-semibold text-center text-blue-600 mb-4">Pooled EER (%)</h2>
   
     <div class="overflow-x-auto">
@@ -440,7 +440,36 @@
         </tbody>
       </table>
     </div>
+  </div> -->
+  
+  <div class="max-w-5xl mx-auto bg-white shadow-lg rounded-lg p-4 mt-8">
+    <h2 class="text-2xl font-semibold text-center text-blue-600 mb-4">Pooled & Average EER (%)</h2>
+  
+    <div class="overflow-x-auto">
+      <table class="min-w-full border-collapse border border-gray-300 text-sm">
+        <thead class="bg-blue-600 text-white">
+          <tr>
+            <th class="border border-gray-300 px-4 py-2 text-left">System</th>
+            <th class="border border-gray-300 px-4 py-2 text-left">Average EER (%)</th>
+            <th class="border border-gray-300 px-4 py-2 text-left">Pooled EER (%)</th>
+          </tr>
+        </thead>
+        <tbody class="bg-white text-gray-800">
+          <tr><td class="border border-gray-300 px-4 py-2">XLSR+SLS</td><td class="border border-gray-300 px-4 py-2">13.85</td><td class="border border-gray-300 px-4 py-2">15.69</td></tr>
+          <tr><td class="border border-gray-300 px-4 py-2">TCM</td><td class="border border-gray-300 px-4 py-2">15.78</td><td class="border border-gray-300 px-4 py-2">16.36</td></tr>
+          <tr><td class="border border-gray-300 px-4 py-2">WavLM ECAPA</td><td class="border border-gray-300 px-4 py-2">28.50</td><td class="border border-gray-300 px-4 py-2">33.48</td></tr>
+          <tr><td class="border border-gray-300 px-4 py-2">Whisper Mesonet</td><td class="border border-gray-300 px-4 py-2">28.69</td><td class="border border-gray-300 px-4 py-2">23.77</td></tr>
+          <tr><td class="border border-gray-300 px-4 py-2">HuBERT ECAPA</td><td class="border border-gray-300 px-4 py-2">34.48</td><td class="border border-gray-300 px-4 py-2">43.03</td></tr>
+          <tr><td class="border border-gray-300 px-4 py-2">AASIST</td><td class="border border-gray-300 px-4 py-2">34.89</td><td class="border border-gray-300 px-4 py-2">33.16</td></tr>
+          <tr><td class="border border-gray-300 px-4 py-2">RawGAT ST</td><td class="border border-gray-300 px-4 py-2">35.53</td><td class="border border-gray-300 px-4 py-2">33.92</td></tr>
+          <tr><td class="border border-gray-300 px-4 py-2">Wav2Vec2 ECAPA</td><td class="border border-gray-300 px-4 py-2">38.59</td><td class="border border-gray-300 px-4 py-2">28.81</td></tr>
+          <tr><td class="border border-gray-300 px-4 py-2">RawNet 2</td><td class="border border-gray-300 px-4 py-2">47.68</td><td class="border border-gray-300 px-4 py-2">46.17</td></tr>
+        </tbody>
+      </table>
+    </div>
   </div>
+  
+  
   
 </body>
 
