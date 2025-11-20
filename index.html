@@ -1,679 +1,741 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Speech Arena - Open Speech Security for all</title>
-    <style>
-.supported-by {
-  border-top: 1px solid var(--border);
-  background: #fafafa;
-  padding: 2rem 0 2.5rem;
-  text-align: center;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Speech Arena - Open Speech Security for all</title>
+  <style>
+    .supported-by {
+      border-top: 1px solid var(--border);
+      background: #fafafa;
+      padding: 2rem 0 2.5rem;
+      text-align: center;
+    }
 
-.supported-title {
-  font-family: Merriweather, Georgia, serif;
-  font-size: 1.25rem;
-  margin-bottom: 1.25rem;
-  color: var(--text-muted);
-  letter-spacing: 0.3px;
-}
+    .supported-title {
+      font-family: Merriweather, Georgia, serif;
+      font-size: 1.25rem;
+      margin-bottom: 1.25rem;
+      color: var(--text-muted);
+      letter-spacing: 0.3px;
+    }
 
-.sponsor-logos {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2.5rem;
-  flex-wrap: wrap;
-}
+    .sponsor-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
 
-.sponsor-logos img {
-  height: 55px;
-  width: auto;
-  /* filter: grayscale(100%) contrast(90%); */
-  opacity: 0.85;
-  transition: filter 0.3s ease, opacity 0.3s ease;
-}
+    .sponsor-logos img {
+      height: 55px;
+      width: auto;
+      /* filter: grayscale(100%) contrast(90%); */
+      opacity: 0.85;
+      transition: filter 0.3s ease, opacity 0.3s ease;
+    }
 
-.sponsor-logos img:hover {
-  filter: grayscale(0%);
-  opacity: 1;
-}
+    .sponsor-logos img:hover {
+      filter: grayscale(0%);
+      opacity: 1;
+    }
 
-.publication-links a {
-  color: var(--link);
-  font-weight: 500;
-  margin-right: 0.75rem;
-  text-decoration: none;
-}
+    .publication-links a {
+      color: var(--link);
+      font-weight: 500;
+      margin-right: 0.75rem;
+      text-decoration: none;
+    }
 
-.publication-links a:hover {
-  text-decoration: underline;
-}
+    .publication-links a:hover {
+      text-decoration: underline;
+    }
 
-.members-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-  text-align: center;
-}
+    .members-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      text-align: center;
+    }
 
-.member-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 0.75rem;
-  padding: 1.5rem 1rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
+    .member-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.5rem 1rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
 
-.member-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
-}
+    .member-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+    }
 
-.member-photo {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 3px solid var(--border);
-  margin-bottom: 1rem;
-}
+    .member-photo {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid var(--border);
+      margin-bottom: 1rem;
+    }
 
-.member-info {
-  text-align: center;
-}
+    .member-info {
+      text-align: center;
+    }
 
-.member-name {
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: var(--text);
-  margin-bottom: 0.25rem;
-}
+    .member-name {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
 
-.member-role {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  line-height: 1.3;
-}
+    .member-role {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.3;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
-            background: #ffffff;
-            color: #1a1a1a;
-            line-height: 1.6;
-        }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+      background: #ffffff;
+      color: #1a1a1a;
+      line-height: 1.6;
+    }
 
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1.2rem 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #e5e5e5;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-        }
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      padding: 1.2rem 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e5e5e5;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #2563eb;
-            letter-spacing: -0.5px;
-        }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #2563eb;
+      letter-spacing: -0.5px;
+    }
 
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-        }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
 
-        .nav-links a {
-            color: #4b5563;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.2s;
-        }
+    .nav-links a {
+      color: #4b5563;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
 
-        .nav-links a:hover {
-            color: #2563eb;
-        }
+    .nav-links a:hover {
+      color: #2563eb;
+    }
 
-        /* Hero Section */
-        .hero {
-            min-height: 65vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 8rem 8% 4rem;
-            margin-top: 60px;
-        }
+    /* Hero Section */
+    .hero {
+      min-height: 65vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8rem 8% 4rem;
+      margin-top: 60px;
+    }
 
-        .hero-content {
-            max-width: 800px;
-            text-align: center;
-        }
+    .hero-content {
+      max-width: 800px;
+      text-align: center;
+    }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            color: #1a1a1a;
-            font-weight: 700;
-            letter-spacing: -1px;
-        }
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      color: #1a1a1a;
+      font-weight: 700;
+      letter-spacing: -1px;
+    }
 
-        .hero p {
-            font-size: 1.25rem;
-            color: #6b7280;
-            margin-bottom: 2.5rem;
-            font-weight: 400;
-        }
+    .hero p {
+      font-size: 1.25rem;
+      color: #6b7280;
+      margin-bottom: 2.5rem;
+      font-weight: 400;
+    }
 
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-        }
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
 
-        .btn {
-            padding: 0.75rem 1.75rem;
-            border: none;
-            border-radius: 6px;
-            font-size: 1rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s;
-            text-decoration: none;
-            display: inline-block;
-        }
+    .btn {
+      padding: 0.75rem 1.75rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
 
-        .btn-primary {
-            background: #2563eb;
-            color: #fff;
-        }
+    .btn-primary {
+      background: #2563eb;
+      color: #fff;
+    }
 
-        .btn-primary:hover {
-            background: #1d4ed8;
-        }
+    .btn-primary:hover {
+      background: #1d4ed8;
+    }
 
-        .btn-secondary {
-            background: transparent;
-            color: #2563eb;
-            border: 1px solid #2563eb;
-        }
+    .btn-secondary {
+      background: transparent;
+      color: #2563eb;
+      border: 1px solid #2563eb;
+    }
 
-        .btn-secondary:hover {
-            background: #eff6ff;
-        }
+    .btn-secondary:hover {
+      background: #eff6ff;
+    }
 
-        /* Section Styling */
-        section {
-            padding: 5rem 8%;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+    /* Section Styling */
+    section {
+      padding: 5rem 8%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
 
-        .section-title {
-            font-size: 2.25rem;
-            margin-bottom: 1rem;
-            color: #1a1a1a;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
+    .section-title {
+      font-size: 2.25rem;
+      margin-bottom: 1rem;
+      color: #1a1a1a;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
 
-        .section-subtitle {
-            font-size: 1.1rem;
-            color: #6b7280;
-            margin-bottom: 3rem;
-        }
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: #6b7280;
+      margin-bottom: 3rem;
+    }
 
-        /* Leaderboards Section */
-        .leaderboards {
-            background: #f9fafb;
-        }
+    /* Leaderboards Section */
+    .leaderboards {
+      background: #f9fafb;
+    }
 
-        .leaderboard-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 2rem;
-        }
+    .leaderboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 2rem;
+    }
 
-        .leaderboard-card {
-            background: #ffffff;
-            border: 1px solid #e5e7eb;
-            border-radius: 8px;
-            padding: 2rem;
-            transition: all 0.2s;
-        }
+    .leaderboard-card {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 2rem;
+      transition: all 0.2s;
+    }
 
-        .leaderboard-card:hover {
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            border-color: #d1d5db;
-        }
+    .leaderboard-card:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      border-color: #d1d5db;
+    }
 
-        .leaderboard-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #1a1a1a;
-            font-weight: 600;
-        }
+    .leaderboard-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #1a1a1a;
+      font-weight: 600;
+    }
 
-        .leaderboard-card p {
-            color: #6b7280;
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
+    .leaderboard-card p {
+      color: #6b7280;
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
 
-        /* About Section */
-        .about-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #4b5563;
-            margin-bottom: 4rem;
-            max-width: 900px;
-        }
+    /* About Section */
+    .about-text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #4b5563;
+      margin-bottom: 4rem;
+      max-width: 900px;
+    }
 
-        .members-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
+    .members-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
 
-        .member-card {
-            background: #f9fafb;
-            border: 1px solid #e5e7eb;
-            border-radius: 8px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.2s;
-        }
+    .member-card {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.2s;
+    }
 
-        .member-card:hover {
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-        }
+    .member-card:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    }
 
-        .member-avatar {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background: #e0e7ff;
-            color: #2563eb;
-            margin: 0 auto 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            font-weight: 600;
-        }
+    .member-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: #e0e7ff;
+      color: #2563eb;
+      margin: 0 auto 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: 600;
+    }
 
-        .member-name {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            color: #1a1a1a;
-            font-weight: 600;
-        }
+    .member-name {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: #1a1a1a;
+      font-weight: 600;
+    }
 
-        .member-role {
-            color: #6b7280;
-            font-size: 0.95rem;
-        }
+    .member-role {
+      color: #6b7280;
+      font-size: 0.95rem;
+    }
 
-        /* Publications Section */
-        .publications {
-            background: #f9fafb;
-        }
+    /* Publications Section */
+    .publications {
+      background: #f9fafb;
+    }
 
-        .publication-item {
-            background: #ffffff;
-            border: 1px solid #e5e7eb;
-            border-left: 3px solid #2563eb;
-            border-radius: 6px;
-            padding: 1.75rem;
-            margin-bottom: 1.5rem;
-            transition: all 0.2s;
-        }
+    .publication-item {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-left: 3px solid #2563eb;
+      border-radius: 6px;
+      padding: 1.75rem;
+      margin-bottom: 1.5rem;
+      transition: all 0.2s;
+    }
 
-        .publication-item:hover {
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-        }
+    .publication-item:hover {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
 
-        .publication-title {
-            font-size: 1.2rem;
-            color: #1a1a1a;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
+    .publication-title {
+      font-size: 1.2rem;
+      color: #1a1a1a;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
 
-        .publication-authors {
-            color: #6b7280;
-            margin-bottom: 0.25rem;
-            font-size: 0.95rem;
-        }
+    .publication-authors {
+      color: #6b7280;
+      margin-bottom: 0.25rem;
+      font-size: 0.95rem;
+    }
 
-        .publication-venue {
-            color: #9ca3af;
-            font-style: italic;
-            font-size: 0.9rem;
-        }
+    .publication-venue {
+      color: #9ca3af;
+      font-style: italic;
+      font-size: 0.9rem;
+    }
 
-        /* Footer */
-        footer {
-            background: #1a1a1a;
-            padding: 3rem 8%;
-            text-align: center;
-            color: #9ca3af;
-        }
+    /* Footer */
+    footer {
+      background: #1a1a1a;
+      padding: 3rem 8%;
+      text-align: center;
+      color: #9ca3af;
+    }
 
-        .social-links {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-        }
+    .social-links {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
 
-        .social-links a {
-            color: #d1d5db;
-            text-decoration: none;
-            transition: color 0.2s;
-            font-size: 0.95rem;
-        }
+    .social-links a {
+      color: #d1d5db;
+      text-decoration: none;
+      transition: color 0.2s;
+      font-size: 0.95rem;
+    }
 
-        .social-links a:hover {
-            color: #ffffff;
-        }
+    .social-links a:hover {
+      color: #ffffff;
+    }
 
-        @media (max-width: 768px) {
-            nav {
-                padding: 1rem 5%;
-            }
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem 5%;
+      }
 
-            section {
-                padding: 3rem 5%;
-            }
+      section {
+        padding: 3rem 5%;
+      }
 
-            .hero {
-                padding: 6rem 5% 3rem;
-            }
+      .hero {
+        padding: 6rem 5% 3rem;
+      }
 
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .nav-links {
-                gap: 1.5rem;
-            }
+      .hero h1 {
+        font-size: 2.5rem;
+      }
 
-            .leaderboard-grid {
-                grid-template-columns: 1fr;
-            }
+      .nav-links {
+        gap: 1.5rem;
+      }
 
-            .cta-buttons {
-                flex-direction: column;
-            }
-        }
-    </style>
+      .leaderboard-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="logo">Speech Arena</div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#leaderboards">Projects</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#publications">Publications</a></li>
-        </ul>
-    </nav>
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">Speech Arena</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#leaderboards">Projects</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#publications">Publications</a></li>
+    </ul>
+  </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Speech Arena</h1>
-            <p>Open Speech Security Research</p>
-            <div class="cta-buttons">
-                <a href="#leaderboards" class="btn btn-primary">Explore Projects</a>
-                <a href="#publications" class="btn btn-secondary">View Research</a>
-            </div>
-        </div>
-    </section>
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Speech Arena</h1>
+      <p>Open Speech Security Research</p>
+      <div class="cta-buttons">
+        <a href="#leaderboards" class="btn btn-primary">Explore Projects</a>
+        <a href="#publications" class="btn btn-secondary">View Research</a>
+      </div>
+    </div>
+  </section>
 
-        <!-- About Section -->
-    <section id="about" class="about">
-        <h2 class="section-title">About</h2>
-        <p class="about-text">
-            Advent of machine generated speech poses serious security and privacy threats through deepfakes and speaker identity leakage. Speech Arena Team
-            promotes open speech security research by adressing challenges in speech deepfake detection and voice privacy through different research projects - benchmarks to 
-            evaluate spoofing countermeasures and voice anonymization systems, open source toolkits for evaluation and open source models that can surpass commercial systems
-        </p>
+  <!-- About Section -->
+  <section id="about" class="about">
+    <h2 class="section-title">About</h2>
+    <p class="about-text">
+      Advent of machine generated speech poses serious security and privacy threats through deepfakes and speaker
+      identity leakage. Speech Arena Team
+      promotes open speech security research by adressing challenges in speech deepfake detection and voice privacy
+      through different research projects - benchmarks to
+      evaluate spoofing countermeasures and voice anonymization systems, open source toolkits for evaluation and open
+      source models that can surpass commercial systems
+    </p>
 
     <!-- Leaderboards Section -->
     <section id="leaderboards" class="leaderboards">
-        <h2 class="section-title">Research Projects</h2>
-        <div class="leaderboard-grid">
-            <div class="leaderboard-card">
-                <h3>Speech Deepfake Arena</h3>
-                <p>A regularly update leaderboard that benchmarks generalizability of speech antispoofing systems across 14 different datasets. Includes 6 commercial and 17 open source systems</p>
-                <img src="./assets/df-arena.jpg" alt="Voice Privacy Arena Banner" style="width:100%; height:auto; margin-bottom:1rem; border-radius:6px;">
+      <h2 class="section-title">Research Projects</h2>
+      <div class="leaderboard-grid">
+        <div class="leaderboard-card">
+          <h3>Speech Deepfake Arena</h3>
+          <p>Maintainers: Ajinkya Kulkarni, Atharva Kulkarni, Sandipana Dowerah
+          <p>
+          <p>A regularly update leaderboard that benchmarks generalizability of speech antispoofing systems across 14
+            different datasets. Includes 6 commercial and 17 open source systems</p>
+          <img src="./assets/df-arena.jpg" alt="Voice Privacy Arena Banner"
+            style="width:100%; height:auto; margin-bottom:1rem; border-radius:6px;">
 
-                <a href="https://huggingface.co/spaces/Speech-Arena-2025/Speech-DF-Arena" target="_blank" class="btn btn-primary">View Leaderboard</a>
-            </div>
-            <div class="leaderboard-card">
-                <h3>Voice Privacy Arena</h3>
-                <p></p>
-                <img src="./assets/vp-arena.jpg" alt="Voice Privacy Arena Banner" style="width:100%; height:auto; margin-bottom:1rem; border-radius:6px;">
-                <a href="https://huggingface.co/spaces/Speech-Arena-2025/Voice-Privacy-Arena" target="_blank" class="btn btn-primary">View Leaderboard</a>
-            </div>
-            <div class="leaderboard-card">
-                <h3>Speech DF Arena toolkit</h3>
-                <p>A simple tool to compute score file and metrics like EER, F1 and accuracy across SOTA speech deepfake detection model on any dataset</p>
-                <a href="https://github.com/Speech-Arena/speech_df_arena" target="_blank" class="btn btn-primary">Explore on GitHub</a>
-            </div>
-            <div class="leaderboard-card">
-                <h3>Voice Privacy Arena Toolkit</h3>
-                <p>Open source toolkit that provides a broad suite of metrics for robust, multi-dimensional evaluation of Voice Anonymization (VA) systems.</p>
-                <a href="https://github.com/Speech-Arena/SynEvalArena" target="_blank" class="btn btn-primary">Explore on GitHub</a>
-            </div>
-            <div class="leaderboard-card">
-                <h3>Open Source Models</h3>
-                <p>Open source speech antispoofing models released by our team</p>
-                <a href="https://huggingface.co/Speech-Arena-2025/models" target="_blank" class="btn btn-primary">View on HuggingFace</a>
-            </div>                                    
+          <a href="https://huggingface.co/spaces/Speech-Arena-2025/Speech-DF-Arena" target="_blank"
+            class="btn btn-primary">View Leaderboard</a>
         </div>
+        <div class="leaderboard-card">
+          <h3>Voice Privacy Arena</h3>
+          <p>Maintainers: Ajinkya Kulkarni, Atharva Kulkarni, Francisco Teixeira</p>
+          <img src="./assets/vp-arena.jpg" alt="Voice Privacy Arena Banner"
+            style="width:100%; height:auto; margin-bottom:1rem; border-radius:6px;">
+          <a href="https://huggingface.co/spaces/Speech-Arena-2025/Voice-Privacy-Arena" target="_blank"
+            class="btn btn-primary">View Leaderboard</a>
+        </div>
+        <div class="leaderboard-card">
+          <h3>Speech DF Arena toolkit</h3>
+          <p>A simple tool to compute score file and metrics like EER, F1 and accuracy across SOTA speech deepfake
+            detection model on any dataset</p>
+          <a href="https://github.com/Speech-Arena/speech_df_arena" target="_blank" class="btn btn-primary">Explore on
+            GitHub</a>
+        </div>
+        <div class="leaderboard-card">
+          <h3>Voice Privacy Arena Toolkit</h3>
+          <p>Open source toolkit that provides a broad suite of metrics for robust, multi-dimensional evaluation of
+            Voice Anonymization (VA) systems.</p>
+          <a href="https://github.com/Speech-Arena/SynEvalArena" target="_blank" class="btn btn-primary">Explore on
+            GitHub</a>
+        </div>
+        <div class="leaderboard-card">
+          <h3>Open Source Models</h3>
+          <p>Open source speech antispoofing models released by our team</p>
+          <a href="https://huggingface.co/Speech-Arena-2025/models" target="_blank" class="btn btn-primary">View on
+            HuggingFace</a>
+        </div>
+      </div>
     </section>
 
 
-        
+
 
     <h3 class="section-title" style="font-size: 1.75rem; margin-top: 4rem; margin-bottom: 2rem;">Team</h3>
 
-<div class="members-grid">
-  <div class="member-card">
-    <img class="member-photo" src="./assets/ajinkya.jpg" alt="Ajinkya Kulkarni">
-    <div class="member-info">
-      <h4 class="member-name">Ajinkya Kulkarni</h4>
-      <p class="member-role">Postdoc, Idiap Research Institute, Switzerland</p>
-    </div>
-  </div>
-
-  <div class="member-card">
-    <img class="member-photo" src="./assets/atharva.jpeg" alt="Atharva Kulkarni">
-    <div class="member-info">
-      <h4 class="member-name">Atharva Kulkarni</h4>
-      <p class="member-role">MSc, Mohamed bin Zayed University of Artificial Intelligence</p>
-    </div>
-  </div>
-
-  <div class="member-card">
-    <img class="member-photo" src="./assets/sandipana.jpg" alt="Sandipana Dowerah">
-    <div class="member-info">
-      <h4 class="member-name">Sandipana Dowerah</h4>
-      <p class="member-role">Postdoc, TalTech, Estonia</p>
-    </div>
-  </div>
-
-  <div class="member-card">
-    <img class="member-photo" src="./assets/mathew.jpeg" alt="Mathew Magimai Doss">
-    <div class="member-info">
-      <h4 class="member-name">Mathew Magimai Doss</h4>
-      <p class="member-role">Senior Researcher, Idiap Research Institute, Switzerland</p>
-    </div>
-  </div>
-
-  <div class="member-card">
-    <img class="member-photo" src="./assets/tanel.jpg" alt="Tanel Alumae">
-    <div class="member-info">
-      <h4 class="member-name">Tanel Alumae</h4>
-      <p class="member-role">Professor, TalTech, Estonia</p>
-    </div>
-  </div>
-</div>
-
-    <!-- Publications Section -->
-    <!-- <section id="publications" class="publications">
-        <h2 class="section-title">Publications</h2>
-        <p class="section-subtitle">Recent work from our lab</p>
-        <div class="publications-content">
-            <div class="publication-item">
-                <h4 class="publication-title">Speech DF Arena: A Leaderboard for Speech DeepFake Detection Models</h4>
-                <p class="publication-venue">Under Review</p>
-            </div>
-            <div class="publication-item">
-                <h4 class="publication-title">Unveiling Audio Deepfake Origins: A Deep Metric learning And Conformer Network Approach With Ensemble Fusion</h4>
-                <p class="publication-venue">Interspeech 2025</p>
-            </div>
-            <div class="publication-item">
-                <h4 class="publication-title">Children's Voice Privacy: First Steps And Emerging Challenges</h4>
-                <p class="publication-venue">Interspeech 2025</p>
-            </div>
-            <div class="publication-item">
-                <h4 class="publication-title">Exploring Generalization To Unseen Audio Data For Spoofing: Insights From SSL Models</h4>
-                <p class="publication-venue">ASVSpoof Workshop Interspeech 2024</p>
-            </div>
+    <div class="members-grid">
+      <div class="member-card">
+        <img class="member-photo" src="./assets/ajinkya.jpg" alt="Ajinkya Kulkarni">
+        <div class="member-info">
+          <h4 class="member-name">Ajinkya Kulkarni</h4>
+          <p class="member-role">Postdoc, Idiap Research Institute, Switzerland</p>
         </div>
-    </section> -->
+      </div>
+
+      <div class="member-card">
+        <img class="member-photo" src="./assets/atharva.jpeg" alt="Atharva Kulkarni">
+        <div class="member-info">
+          <h4 class="member-name">Atharva Kulkarni</h4>
+          <p class="member-role">MSc student, Mohamed bin Zayed University of Artificial Intelligence</p>
+        </div>
+      </div>
+
+      <div class="member-card">
+        <img class="member-photo" src="./assets/sandipana.jpg" alt="Sandipana Dowerah">
+        <div class="member-info">
+          <h4 class="member-name">Sandipana Dowerah</h4>
+          <p class="member-role">Postdoc, TalTech, Estonia</p>
+        </div>
+      </div>
+ 
+        <div class="member-card">
+        <img class="member-photo" src="./assets/francisco.png" alt="Sandipana Dowerah">
+        <div class="member-info">
+          <h4 class="member-name">Francisco Teixeira</h4>
+          <p class="member-role"> INESC-ID / IST / University of Lisbon</p>
+        </div>
+      </div>
+
+      <div class="member-card">
+        <img class="member-photo" src="./assets/mathew.jpeg" alt="Mathew Magimai Doss">
+        <div class="member-info">
+          <h4 class="member-name">Mathew Magimai Doss</h4>
+          <p class="member-role">Senior Researcher, Idiap Research Institute, Switzerland</p>
+        </div>
+      </div>
+
+      <div class="member-card">
+        <img class="member-photo" src="./assets/tanel.jpg" alt="Tanel Alumae">
+        <div class="member-info">
+          <h4 class="member-name">Tanel Alumae</h4>
+          <p class="member-role">Professor, TalTech, Estonia</p>
+        </div>
+      </div>
+
+      <div class="member-card">
+        <img class="member-photo" src="./assets/isabel.jpg" alt="Tanel Alumae">
+        <div class="member-info">
+          <h4 class="member-name">Isabel Trancoso</h4>
+          <p class="member-role">Full Professor, INESC-ID / IST / University of Lisbon</p>
+        </div>
+      </div>
+
+    </div>
+
+    <h3 class="section-title" style="font-size: 1.75rem; margin-top: 4rem; margin-bottom: 2rem;">Past Collaborators</h3>
+
+    <div class="members-grid">
+      <div class="member-card">
+        <img class="member-photo" src="./assets/my.jpg" alt="Ajinkya Kulkarni">
+        <div class="member-info">
+          <h4 class="member-name">Hoan My Tran</h4>
+          <p class="member-role">PhD Student, Université de Rennes, France</p>
+        </div>
+      </div>
+
+      <div class="member-card">
+        <img class="member-photo" src="./assets/benoit.jpg" alt="Benoit Fauve">
+        <div class="member-info">
+          <h4 class="member-name">Benoit Fauve</h4>
+          <p class="member-role">Validsoft, UK</p>
+        </div>
+      </div>
+
+      <div class="member-card">
+        <img class="member-photo" src="./assets/damien.jpg" alt="Damien Lolive">
+        <div class="member-info">
+          <h4 class="member-name">Damien Lolive</h4>
+          <p class="member-role">Full professor, IRISA, France</p>
+        </div>
+      </div>
+    </div>
+    </section>
+
 
     <!-- Publications Section -->
-<section id="publications" class="publications">
-  <h2 class="section-title">Publications</h2>
-  <p class="section-subtitle">Recent work from our lab</p>
+    <section id="publications" class="publications">
+      <h2 class="section-title">Publications</h2>
 
-  <div class="publications-content">
+      <div class="publications-content">
 
-    <div class="publication-item">
-      <h4 class="publication-title">
-        Speech DF Arena: A Leaderboard for Speech DeepFake Detection Models
-      </h4>
-      <p class="publication-venue">Under Review</p>
-      <p class="publication-links">
-        <a href="https://arxiv.org/abs/2509.02859" target="_blank" rel="noopener">[Paper]</a>
-        <a href="https://github.com/Speech-Arena/speech_df_arena" target="_blank" rel="noopener">[Code]</a>
+        <div class="publication-item">
+          <h4 class="publication-title">
+            Speech DF Arena: A Leaderboard for Speech DeepFake Detection Models
+          </h4>
+          <p class="publication-venue">Under Review</p>
+          <p class="publication-links">
+            <a href="https://arxiv.org/abs/2509.02859" target="_blank" rel="noopener">[Paper]</a>
+            <a href="https://github.com/Speech-Arena/speech_df_arena" target="_blank" rel="noopener">[Code]</a>
+          </p>
+        </div>
+
+        <div class="publication-item">
+          <h4 class="publication-title">
+            Unveiling Audio Deepfake Origins: A Deep Metric Learning and Conformer Network Approach with Ensemble Fusion
+          </h4>
+          <p class="publication-venue">Interspeech 2025</p>
+          <p class="publication-links">
+            <a href="https://www.isca-archive.org/interspeech_2025/kulkarni25_interspeech.pdf" target="_blank"
+              rel="noopener">[Paper]</a>
+          </p>
+        </div>
+
+        <div class="publication-item">
+          <h4 class="publication-title">
+            Children's Voice Privacy: First Steps and Emerging Challenges
+          </h4>
+          <p class="publication-venue">Interspeech 2025</p>
+          <p class="publication-links">
+            <a href="https://www.isca-archive.org/interspeech_2025/kulkarni25b_interspeech.pdf" target="_blank"
+              rel="noopener">[Paper]</a>
+          </p>
+        </div>
+
+        <div class="publication-item">
+          <h4 class="publication-title">
+            Exploring Generalization to Unseen Audio Data for Spoofing: Insights from SSL Models
+          </h4>
+          <p class="publication-venue">ASVSpoof Workshop, Interspeech 2024</p>
+          <p class="publication-links">
+            <a href="https://www.isca-archive.org/asvspoof_2024/kulkarni24_asvspoof.pdf" target="_blank"
+              rel="noopener">[Paper]</a>
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+        <section id="about" class="about">
+      <h2 class="section-title">Acknowledgments</h2>
+      <p class="about-text">
+        This work was partially supported by the Swiss National Science Foundation through the project PASS:
+        Pathological Speech
+        Synthesis (grant agreement no. 219726) and by the Innosuisse through the flagship project IICT: Inclusive
+        Information and Communication Technologies (grant agreement no.
+        PFFS-21-47), and by the Portuguese national funds through
+        Fundação para a Ciência e a Tecnologia, with reference
+        DOI:10.54499/UIDB/50021/2020, by the Recovery and Resilience Plan and Next Generation EU European Funds, with
+        reference C644865762-00000008 Accelerat.AI. We thank André Mayoraz for setting up the listening test server.
       </p>
-    </div>
-
-    <div class="publication-item">
-      <h4 class="publication-title">
-        Unveiling Audio Deepfake Origins: A Deep Metric Learning and Conformer Network Approach with Ensemble Fusion
-      </h4>
-      <p class="publication-venue">Interspeech 2025</p>
-      <p class="publication-links">
-        <a href="https://www.isca-archive.org/interspeech_2025/kulkarni25_interspeech.pdf" target="_blank" rel="noopener">[Paper]</a>
-      </p>
-    </div>
-
-    <div class="publication-item">
-      <h4 class="publication-title">
-        Children's Voice Privacy: First Steps and Emerging Challenges
-      </h4>
-      <p class="publication-venue">Interspeech 2025</p>
-      <p class="publication-links">
-        <a href="https://www.isca-archive.org/interspeech_2025/kulkarni25b_interspeech.pdf" target="_blank" rel="noopener">[Paper]</a>
-      </p>
-    </div>
-
-    <div class="publication-item">
-      <h4 class="publication-title">
-        Exploring Generalization to Unseen Audio Data for Spoofing: Insights from SSL Models
-      </h4>
-      <p class="publication-venue">ASVSpoof Workshop, Interspeech 2024</p>
-      <p class="publication-links">
-        <a href="https://www.isca-archive.org/asvspoof_2024/kulkarni24_asvspoof.pdf" target="_blank" rel="noopener">[Paper]</a>
-      </p>
-    </div>
-
-  </div>
-</section>
-
-<!-- Supported By Section -->
-<section class="supported-by">
-  <div class="container">
-    <h3 class="supported-title">Supported By</h3>
-    <div class="sponsor-logos">
-      <a href="https://www.idiap.ch" target="_blank" rel="noopener">
-        <img src="./assets/idiap.png" alt="Idiap Research Institute Logo">
-      </a>
-      <a href="https://taltech.ee" target="_blank" rel="noopener">
-        <img src="./assets/taltech.png" alt="TalTech University Logo">
-      </a>
-
-    </div>
-  </div>
-</section>
+    </section>
 
 
-    <!-- Footer -->
-    <footer>
+    <!-- Supported By Section -->
+    <section class="supported-by">
+      <div class="container">
+        <h3 class="supported-title">Supported By</h3>
+        <div class="sponsor-logos">
+          <a href="https://www.idiap.ch" target="_blank" rel="noopener">
+            <img src="./assets/idiap.png" alt="Idiap Research Institute Logo">
+          </a>
+          <a href="https://taltech.ee" target="_blank" rel="noopener">
+            <img src="./assets/taltech.png" alt="TalTech University Logo">
+          </a>
+          <a href="https://www.inesc-id.pt/" target="_blank" rel="noopener">
+            <img src="./assets/inesc.png" alt="TalTech University Logo">
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+
+
+      <!-- Footer -->
+      <footer>
         <div class="social-links">
-            <a href="https://huggingface.co/Speech-Arena-2025" target="_blank">HuggingFace</a>
-            <a href="speech.arena.eval@gmail.com" target="speech.arena.eval@gmail.com">Contact</a>
+          <a href="https://huggingface.co/Speech-Arena-2025" target="_blank">HuggingFace</a>
+          <a href="speech.arena.eval@gmail.com" target="speech.arena.eval@gmail.com">Contact</a>
         </div>
         <p>&copy; 2025 Speech Arena. Advancing Open Speech Security Research.</p>
-    </footer>
+      </footer>
 
-    
 
-    <script>
+
+      <script>
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
+          anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+              target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+              });
+            }
+          });
         });
 
         // Add scroll effect to navigation
         let lastScroll = 0;
         window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            const currentScroll = window.scrollY;
-            
-            if (currentScroll > 50) {
-                nav.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.1)';
-            } else {
-                nav.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.05)';
-            }
-            
-            lastScroll = currentScroll;
+          const nav = document.querySelector('nav');
+          const currentScroll = window.scrollY;
+
+          if (currentScroll > 50) {
+            nav.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.1)';
+          } else {
+            nav.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.05)';
+          }
+
+          lastScroll = currentScroll;
         });
-    </script>
+      </script>
 </body>
+
 </html>
